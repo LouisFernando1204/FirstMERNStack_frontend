@@ -14,6 +14,8 @@ const NotesList = () => {
         refetchOnMountOrArgChange: true
     })
 
+    console.log(notes);
+
     let content
 
     if (isLoading) content = <p>Loading...</p>
