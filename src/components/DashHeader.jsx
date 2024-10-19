@@ -13,6 +13,7 @@ const DashHeader = () => {
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
+    console.log("pathname: ", pathname);
 
     const [sendLogout, {
         isLoading,
@@ -22,7 +23,6 @@ const DashHeader = () => {
     }] = useSendLogoutMutation()
 
     useEffect(() => {
-        console.log(isSuccess);
         if (isSuccess) navigate('/')
     }, [isSuccess, navigate])
 
@@ -39,7 +39,7 @@ const DashHeader = () => {
         <button
             className="icon-button"
             title="Logout"
-            onClick={sendLogout}
+            onClick={() => sendLogout()}
         >
             <FontAwesomeIcon icon={faRightFromBracket} />
         </button>
