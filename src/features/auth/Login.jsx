@@ -6,8 +6,12 @@ import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 
 import usePersist from '../../hooks/usePersist'
+import { BeatLoader } from 'react-spinners'
+import useTitle from '../../hooks/useTitle'
 
 const Login = () => {
+    useTitle("Login")
+
     const userRef = useRef()
     const errRef = useRef()
     const [username, setUsername] = useState('')
@@ -58,7 +62,7 @@ const Login = () => {
 
     const errClass = errMsg ? "errmsg" : "offscreen"
 
-    if (isLoading) return <p>Loading...</p>
+    if (isLoading) return <BeatLoader color={"#FFF"} />
 
     const content = (
         <section className="public">

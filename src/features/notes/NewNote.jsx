@@ -1,14 +1,22 @@
-import { useSelector } from 'react-redux'
-import { selectAllUsers } from '../users/usersApiSlice'
 import NewNoteForm from './NewNoteForm'
+import { useGetUsersQuery } from '../users/usersApiSlice'
+import BeatLoader from 'react-spinners/BeatLoader'
+import useTitle from '../../hooks/useTitle'
 
 const NewNote = () => {
-    const users = useSelector(selectAllUsers)
+    useTitle('techNotes: New Note')
 
-    if (!users?.length) return <p>Not Currently Available</p>
+    const { users } = useGetUsersQuery("usersList", {
+        selectFromResult: ({ data }) => ({
+            users: data?.ids.map(id => data?.entities[id])
+        }),
+    })
+
+    if (!users?.length) return <BeatLoader color={"#FFF"} />
 
     const content = <NewNoteForm users={users} />
 
     return content
 }
+
 export default NewNote

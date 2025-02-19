@@ -1,8 +1,11 @@
 import { useGetNotesQuery } from "./notesApiSlice"
 import Note from "./Note"
 import useAuth from "../../hooks/useAuth"
+import { BeatLoader } from "react-spinners"
+import useTitle from "../../hooks/useTitle"
 
 const NotesList = () => {
+    useTitle('techNotes: Notes List')
 
     const { username, isManager, isAdmin } = useAuth()
 
@@ -20,7 +23,7 @@ const NotesList = () => {
 
     let content
 
-    if (isLoading) content = <p>Loading...</p>
+    if (isLoading) content = <BeatLoader color={"#FFF"} />
 
     if (isError) {
         content = <p className="errmsg">{error?.data?.message}</p>
