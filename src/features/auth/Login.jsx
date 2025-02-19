@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { setCredentials } from './authSlice'
 import { useLoginMutation } from './authApiSlice'
 
-import usePersist from '../../../hooks/usePersist'
+import usePersist from '../../hooks/usePersist'
 
 const Login = () => {
     const userRef = useRef()
@@ -113,4 +113,5 @@ const Login = () => {
 
     return content
 }
+
 export default Login

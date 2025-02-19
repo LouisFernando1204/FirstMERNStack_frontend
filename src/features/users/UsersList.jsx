@@ -1,14 +1,15 @@
 import { useGetUsersQuery } from "./usersApiSlice"
-import User from "./User"
+import User from './User'
 
 const UsersList = () => {
+
     const {
         data: users,
         isLoading,
         isSuccess,
         isError,
         error
-    } = useGetUsersQuery("usersList", {
+    } = useGetUsersQuery('usersList', {
         pollingInterval: 60000,
         refetchOnFocus: true,
         refetchOnMountOrArgChange: true
@@ -26,11 +27,7 @@ const UsersList = () => {
 
         const { ids } = users
 
-        console.log(users);
-
-        const tableContent = ids?.length
-            ? ids.map(userId => <User key={userId} userId={userId} />)
-            : null
+        const tableContent = ids?.length && ids.map(userId => <User key={userId} userId={userId} />)
 
         content = (
             <table className="table table--users">
