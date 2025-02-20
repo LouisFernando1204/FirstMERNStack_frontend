@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle"
 import BeatLoader from 'react-spinners/BeatLoader'
 
 const UsersList = () => {
-    useTitle('techNotes: Users List')
+    useTitle('TechMate: Users List')
 
     const {
         data: users,

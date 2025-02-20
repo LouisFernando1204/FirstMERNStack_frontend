@@ -5,7 +5,7 @@ import BeatLoader from 'react-spinners/BeatLoader'
 import useTitle from '../../hooks/useTitle'
 
 const EditUser = () => {
-    useTitle('techNotes: Edit User')
+    useTitle('TechMate: Edit User')
 
     const { id } = useParams()
 

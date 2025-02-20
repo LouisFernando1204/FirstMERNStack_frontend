@@ -5,7 +5,7 @@ import { BeatLoader } from "react-spinners"
 import useTitle from "../../hooks/useTitle"
 
 const NotesList = () => {
-    useTitle('techNotes: Notes List')
+    useTitle('TechMate: Notes List')
 
     const { username, isManager, isAdmin } = useAuth()
 
